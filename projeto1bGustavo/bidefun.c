@@ -166,7 +166,7 @@ void interpreter(code arr[])
 
 void soma()
 {
-    code arr[15];
+    code arr[20];
 
     //0. END
     arr[0].f = 0;
@@ -176,7 +176,7 @@ void soma()
     //1. topo da pilha alterado
     arr[1].f = 10;
     arr[1].l = 0;
-    arr[1].a = 4;
+    arr[1].a = 5;
 
     //2. setando o valor 1
     arr[2].f = 1;
@@ -188,60 +188,85 @@ void soma()
     arr[3].l = 0;
     arr[3].a = 3;
 
-    //4. carregando valor inicial para incremento
-    arr[4].f = 3;
+    //4. setando o valor 0
+    arr[4].f = 1;
     arr[4].l = 0;
-    arr[4].a = 3;
+    arr[4].a = 0;
 
-    //4.5 inc topo
-    arr[5].f = 6;
+    //5. copiando o valor incial
+    arr[5].f = 4;
     arr[5].l = 0;
-    arr[5].a = 0;
+    arr[5].a = 4;
 
-    //5. adicionando o outro operando
-    arr[6].f = 1;
+    //6. carregando valor inicial para soma
+    arr[6].f = 3;
     arr[6].l = 0;
-    arr[6].a = 1;
+    arr[6].a = 3;
 
-    //6. operando
+    //7. opr add
     arr[7].f = 2;
     arr[7].l = 0;
     arr[7].a = 2;
 
-    //7. salvando na posição
-    arr[8].f = 4;
+    //7.5 inc topo
+    arr[8].f = 6;
     arr[8].l = 0;
-    arr[8].a = 3;
+    arr[8].a = 0;
 
-    //8. setando o 10
-    arr[9].f = 1;
+    //8. carregando valor inicial para incremento
+    arr[9].f = 3;
     arr[9].l = 0;
-    arr[9].a = 10;
+    arr[9].a = 3;
 
     //8.5 inc topo
     arr[10].f = 6;
     arr[10].l = 0;
     arr[10].a = 0;
 
-    //9. setando a variavel
-    arr[11].f = 3;
+    //9. adicionando o outro operando
+    arr[11].f = 1;
     arr[11].l = 0;
-    arr[11].a = 3;
+    arr[11].a = 1;
 
-    //10. opr neg
+    //10. operando
     arr[12].f = 2;
     arr[12].l = 0;
-    arr[12].a = 3;
+    arr[12].a = 2;
+
+    //11. salvando na posição
+    arr[13].f = 4;
+    arr[13].l = 0;
+    arr[13].a = 3;
+
+    //12. setando o 11
+    arr[14].f = 1;
+    arr[14].l = 0;
+    arr[14].a = 11;
+
+    //12.5 inc topo
+    arr[15].f = 6;
+    arr[15].l = 0;
+    arr[15].a = 0;
+
+    //13. setando a variavel
+    arr[16].f = 3;
+    arr[16].l = 0;
+    arr[16].a = 3;
+
+    //10. opr neg
+    arr[17].f = 2;
+    arr[17].l = 0;
+    arr[17].a = 3;
 
     //11.jpc test
-    arr[13].f = 8;
-    arr[13].l = 0;
-    arr[13].a = 0;
+    arr[18].f = 8;
+    arr[18].l = 0;
+    arr[18].a = 0;
 
     //12. jmp
-    arr[14].f = 7;
-    arr[14].l = 0;
-    arr[14].a = 4;
+    arr[19].f = 7;
+    arr[19].l = 0;
+    arr[19].a = 6;
 
     printf("----------------------------------------------------------------------------------\n");
     printf("\tSoma de 1 a 10 na p-code:\n\n");
