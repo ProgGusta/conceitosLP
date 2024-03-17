@@ -8,7 +8,7 @@ void interpreter(code arr[])
     int b=0; //base of the stack (RA)
     int i=0; //instruction number
 
-    __int64 stack[SIZE];
+    unsigned long long int stack[SIZE];
     stack[0] = 35;
     stack[1] = 36;
     stack[2] = 37;
