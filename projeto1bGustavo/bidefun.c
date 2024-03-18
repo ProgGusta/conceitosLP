@@ -8,7 +8,7 @@ void interpreter(code arr[])
     int b=0; //base of the stack (RA)
     int i=0; //instruction number
 
-    unsigned long long int stack[SIZE];
+    long long int stack[SIZE];
     stack[0] = 35;
     stack[1] = 36;
     stack[2] = 37;
@@ -141,7 +141,7 @@ void interpreter(code arr[])
                 break;
 
             case 9: //WRT
-                printf("STACK[%d] = %d", t, stack[t--]);
+                printf("STACK[%d] = %lld", t, stack[t--]);
                 break;
 
             case 10: //INT
