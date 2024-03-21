@@ -12,7 +12,18 @@ typedef struct instrucao
     int a; // a: 0..amax; // Buffer de endereco
 } instrucao;
 
-instrucao codigo[2048];
+instrucao code[2048];
+
+/*
+    stack -> 0 - 49 main
+             50 - 100 multi
+             100 - 150 soma
+
+    instructions -> 0 - 99 main
+                    100 - 200 - multi
+                    200 - 300 - soma
+
+*/
 
 #define tamanho_da_pilha 5012
 
@@ -38,23 +49,18 @@ int impar(int x)
 void pcodevhw() 
 {
     printf("\n iniciar pl/0");
-    printf("\n p b t\n");
-    printf("=============================\n");
+    printf("\n  p   b   t\t  f   l   a\t       0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15\n");
+    printf("====================================================================================\n");
     t = -1;
     b = 0;
     p = 0;
     s[0] = s[1] = s[2] = 0;
 
-    codigo[0].f = INT; codigo[0].l = 0; codigo[0].a = 3;
-    codigo[1].f = LIT; codigo[1].l = 0; codigo[1].a = 7;
-    codigo[2].f = LIT; codigo[2].l = 0; codigo[2].a = 11;
-    codigo[3].f = OPR; codigo[3].l = 0; codigo[3].a = 2;
-    codigo[4].f = OPR; codigo[4].l = 0; codigo[4].a = 0;
 
     do 
     {
-        eu = codigo[p];
-        printf("%3d %3d %3d ", p, b, t);
+        eu = code[p];
+        printf("%3d %3d %3d\t", p, b, t);
         p++;
         switch (eu.f) {
             case LIT:
@@ -152,18 +158,91 @@ void pcodevhw()
                 printf("JPC %3d %3d", eu.l, eu.a);
                 break;
         }
-        printf("\ns[]: ");
-        for (int h = 0; h <= t; h++) {
+        printf("\ts[]: ");
+        for (int h = 0; h <= t; h++)
             printf("%3d", s[h]);
-        }
+        printf("\n");
+        
     } while (p != 0);
-    printf("\n=============================\n");
+    printf("====================================================================================\n");
+    printf("\n  p   b   t\t  f   l   a\t       0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15\n");
     printf(" fim pl/0");
 }
 
 int main() 
 {
-    codigo[0].f = OPR; codigo[0].l = 0; codigo[0].a = 0;
+    /*
+        function sum -> s[100] - s[150]
+                        c[200] - c[300]
+    */
+    code[200].f = INT; code[200].l = 0; code[200].a = 6;
+    code[201].f = LOD; code[201].l = 0; code[201].a = 3;
+    code[202].f = LOD; code[202].l = 0; code[202].a = 4;
+    code[203].f = OPR; code[203].l = 0; code[203].a = 2;
+    code[204].f = STO; code[204].l = 0; code[204].a = 5;
+    code[205].f = LOD; code[205].l = 0; code[205].a = 5;
+    code[206].f = STO; code[206].l = 1; code[206].a = 8;
+    code[207].f = OPR; code[207].l = 0; code[207].a = 0;
+
+
+    /*
+        function mult -> s[50] - s[100]
+                         c[100] - c[200]
+
+    */
+    code[100].f = INT; code[100].l = 0; code[100].a = 6;
+    code[101].f = LOD; code[101].l = 0; code[101].a = 3;
+    code[102].f = LOD; code[102].l = 0; code[102].a = 4;
+    code[103].f = OPR; code[103].l = 0; code[103].a = 4;
+    code[104].f = STO; code[104].l = 0; code[104].a = 5;
+    code[105].f = LOD; code[105].l = 0; code[105].a = 5;
+    code[106].f = STO; code[106].l = 1; code[106].a = 7;
+    code[107].f = OPR; code[107].l = 0; code[107].a = 0;
+
+    /*
+        function main -> s[0] - s[49]
+                         c[0] - c[99]
+    
+    */
+    code[0].f = INT; code[0].l = 0; code[0].a = 9;
+    code[1].f = LIT; code[1].l = 0; code[1].a = 1;
+    code[2].f = STO; code[2].l = 0; code[2].a = 3; //s[3] = 1 -> a
+    code[3].f = LIT; code[3].l = 0; code[3].a = 2;
+    code[4].f = STO; code[4].l = 0; code[4].a = 4; //s[4] = 2 -> b
+    code[5].f = LIT; code[5].l = 0; code[5].a = 3;
+    code[6].f = STO; code[6].l = 0; code[6].a = 5; //s[5] = 3 -> c
+    code[7].f = LIT; code[7].l = 0; code[7].a = 4;
+    code[8].f = STO; code[8].l = 0; code[8].a = 6; //s[6] = 4 -> x
+    code[9].f = LOD; code[9].l = 0; code[9].a = 6;
+    code[10].f = STO; code[10].l = 0; code[10].a = 12;
+    code[11].f = LOD; code[11].l = 0; code[11].a = 6;
+    code[12].f = STO; code[12].l = 0; code[12].a = 13;
+    code[13].f = CAL; code[13].l = 0; code[13].a = 100;
+    code[14].f = LOD; code[14].l = 0; code[14].a = 7;
+    code[15].f = STO; code[15].l = 0; code[15].a = 12;
+    code[16].f = LOD; code[16].l = 0; code[16].a = 3;
+    code[17].f = STO; code[17].l = 0; code[17].a = 13;
+    code[18].f = CAL; code[18].l = 0; code[18].a = 100;
+    code[19].f = LOD; code[19].l = 0; code[19].a = 7;
+    code[20].f = STO; code[20].l = 0; code[20].a = 3;
+    code[21].f = LOD; code[21].l = 0; code[21].a = 4;
+    code[22].f = STO; code[22].l = 0; code[22].a = 12;
+    code[23].f = LOD; code[23].l = 0; code[23].a = 6;
+    code[24].f = STO; code[24].l = 0; code[24].a = 13;
+    code[25].f = CAL; code[25].l = 0; code[25].a = 100;
+    code[26].f = LOD; code[26].l = 0; code[26].a = 7;
+    code[27].f = STO; code[27].l = 0; code[27].a = 12;
+    code[28].f = LOD; code[28].l = 0; code[28].a = 3;
+    code[29].f = STO; code[29].l = 0; code[29].a = 13;
+    code[30].f = CAL; code[30].l = 0; code[30].a = 200;
+    code[31].f = LOD; code[31].l = 0; code[31].a = 8;
+    code[32].f = STO; code[32].l = 0; code[32].a = 12;
+    code[33].f = LOD; code[33].l = 0; code[33].a = 5;
+    code[34].f = STO; code[34].l = 0; code[34].a = 13;
+    code[35].f = CAL; code[35].l = 0; code[35].a = 200;
+    code[36].f = OPR; code[36].l = 0; code[36].a = 0;
+
+    //execution
     pcodevhw();
     return 0;
 }
