@@ -1,3 +1,9 @@
+/*
+    Aluno: Gustavo Barreto dos Santos Costa
+    Matéria: Conceitos de Linguagens de Programação
+    Professor: César Alberto Bravo Pariente
+*/
+
 // p-code.cpp :  cpp.sh
 //
 // C conventions
