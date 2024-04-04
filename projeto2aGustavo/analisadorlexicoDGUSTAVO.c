@@ -8,9 +8,10 @@
 #include <string.h>
 
 // verifica digito da vez
-#define digt(c) ((c == '1') || (c == '0'))
+#define digt(c) ((c == '0') || (c == '1') || (c == '2') || (c == '3') || (c == '4') || (c == '5') || (c == '6') || (c == '7') || (c == '8') || (c == '9'))
 #define MAX_LINE_LENGTH 100 // Tamanho máximo da linha
 
+// função main
 int main(int argc, char *argv[])
 {
     // verifica quantidade de parametros
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    int len, i = -1; // // control variables
+    int len, i = -1; // control variables
     char linha[MAX_LINE_LENGTH]; // guarda a linha
     int word = 1; // quantidade de palavras
     
