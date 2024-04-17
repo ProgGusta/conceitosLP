@@ -19,6 +19,7 @@ int ins = 0; //number of instructions
 int Ptop = -1; //top of the Pstack
 int i = 0; // pointer line
 char linha[MAX_LINE_LENGTH]; // guarda a linha
+int len; // // control variables
 
 void impressArv()
 {
@@ -41,7 +42,7 @@ void impressArv()
 
 void impress(int options)
 {
-    if(strlen(linha) - 1 < 4)
+    if(len <= 5)
         printf("\t");
 
     for(int a=0; a<strlen(linha)-1; a++)
@@ -50,6 +51,7 @@ void impress(int options)
         else
             printf("%c", linha[a]);
     printf("\t|");
+
     if(top == 0)
         printf("\t%c\t", stack[top]);
     else if(top < 3)
@@ -59,7 +61,7 @@ void impress(int options)
             printf("%c", stack[a]);
         printf("\t");
     }
-    else if(top >= 0)
+    else if(top > 0)
     {
         printf("\t");
         for(int a=0; a<=top;a++)
@@ -105,7 +107,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    int len; // // control variables
     int word = 1; // quantidade de palavras
     int flag = 0;
     
@@ -116,14 +117,16 @@ int main(int argc, char *argv[])
         len = strlen(linha);
 
         // retirando \n da leitura
-        len--;
+        if(linha[len-1] == '\n')
+            len--;
+          
 
-        printf("| i  | q  |\tstack\t|\tw\t| Si | Pi |\n");
+        printf("| i  | q  |\tw\t|\tstack\t| Si | Pi |\n");
 
         // estado inicial
         Q0:
             printf("| %2d | q0 |", ins++);
-            if(len < 4)
+            if(len <= 5)
                 printf("\t");
 
             for(int a=0; a<len; a++)
@@ -211,7 +214,7 @@ int main(int argc, char *argv[])
                 goto REJECT;
 
             printf("| %2d |  - |", ins);
-            if(len < 4)
+            if(len <= 5)
                 printf("\t");
                 
             for(int a=0; a<len; a++)

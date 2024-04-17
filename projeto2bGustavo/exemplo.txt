@@ -3,4 +3,4 @@ aaacbbb
 abc
 acb
 acbb
-aacbb
+aacb
