@@ -49,7 +49,7 @@ void error(int tipo);
 #define MULT_OP 23 
 #define DIV_OP 24 
 #define LEFT_PAREN 25 
-#define RIGHT_PAREN 26 
+#define RIGHT_PAREN 26
 
 #define TERM 100
 #define EXPR 101
