@@ -41,7 +41,7 @@ int main()
     char arvoreBi[MAX_SIZE];
 
     // Lendo a palavra do arquivo
-    fp = fopen("entrada.in", "r");
+    fp = fopen("entrada.txt", "r");
     if(fp == NULL)
     {
         printf("Problema na leitura\n");
@@ -87,11 +87,16 @@ int main()
         else if(token == '\0' && top == 0)    { end(i, "q1", "-", "-"); goto end;}
         else {erro(1); return 0;}
     end:
+        printf("\n\nArvore Penta:\n");
+        printArv(arvoreVet, 0, 0);
+
         penta2Bi(arvoreBi);
+
+        printf("\n\nArvore Binaria:\n");
 
         PostOrder(arvoreBi, 0);
         polonesaRev[topPolonesa] = '\0';
-        printf("\n\nNotacao Polonesa:\n %s", polonesaRev);
+        printf("\n\nNotacao Polonesa Reversa:\n %s", polonesaRev);
 
         printf("\n\nP-code:\n");
         Polo2Pcode();
@@ -221,6 +226,7 @@ void PostOrder(char *arvore, int indice)
     {
         PostOrder(arvore, 5*indice+2);
         PostOrder(arvore, 5*indice+4);
+        printf("|-- %c\n", arvore[indice]);
         polonesaRev[topPolonesa++] = arvore[indice];
     }
 }

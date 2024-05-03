@@ -28,7 +28,43 @@ Tabela de Parsing:
  23 ||  q1 || ((a/1)*(b+c).) || t17 ||   - || )
  24 ||  q1 || ((a/1)*(b+c)). ||   - ||   - || None
 
-Notacao Polonesa:
+Arvore Penta:
+|-- E
+   |-- (
+   |-- E
+      |-- (
+      |-- E
+         |-- a
+      |-- X
+         |-- /
+      |-- E
+         |-- 1
+      |-- )
+   |-- X
+      |-- *
+   |-- E
+      |-- (
+      |-- E
+         |-- b
+      |-- X
+         |-- +
+      |-- E
+         |-- c
+      |-- )
+   |-- )
+
+
+Arvore Binaria:
+|-- a
+|-- 1
+|-- /
+|-- b
+|-- c
+|-- +
+|-- *
+
+
+Notacao Polonesa Reversa:
  a1/bc+*
 
 P-code:
