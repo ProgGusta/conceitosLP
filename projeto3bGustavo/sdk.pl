@@ -126,7 +126,15 @@ d(9,7).
 d(9,8).
 
 
-test_sudoku() :-
+test_sudoku(A11,A12,A13,A14,A15,A16,A17,A18,A19,
+            A21,A22,A23,A24,A25,A26,A27,A28,A29,
+            A31,A32,A33,A34,A35,A36,A37,A38,A39,
+            A41,A42,A43,A44,A45,A46,A47,A48,A49,
+            A51,A52,A53,A54,A55,A56,A57,A58,A59,
+            A61,A62,A63,A64,A65,A66,A67,A68,A69,
+            A71,A72,A73,A74,A75,A76,A77,A78,A79,
+            A81,A82,A83,A84,A85,A86,A87,A88,A89,
+            A91,A92,A93,A94,A95,A96,A97,A98,A99) :-
     get_time(T1),
     sdk(A11,A12,A13,A14,A15,A16,A17,A18,A19,
         A21,A22,A23,A24,A25,A26,A27,A28,A29,
@@ -139,5 +147,5 @@ test_sudoku() :-
         A91,A92,A93,A94,A95,A96,A97,A98,A99),
     get_time(T2),
     Time is T2 - T1, 
-    format('Tempo de execução para ~w! : ~w segundos.~n', [N, Time]),
+    format('Tempo de execução para sudoku : ~w segundos.~n', [Time]),
     Time < 60.

@@ -668,14 +668,14 @@ d(25,23).
 d(25,24).
 d(25,25).
 
-test_ms() :-
+test_ms(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y) :-
     get_time(T1),
-    ms( A11,A12,A13,A14,A15,
-        A21,A22,A23,A24,A25,
-        A31,A32,A33,A34,A35,
-        A41,A42,A43,A44,A45,
-        A51,A52,A53,A54,A55),
+    ms( A,B,C,D,E,
+        F,G,H,I,J,
+        K,L,M,N,O
+        P,Q,R,S,T
+        U,V,W,X,Y),
     get_time(T2),
     Time is T2 - T1, 
-    format('Tempo de execução para ~w! : ~w segundos.~n', [N, Time]),
+    format('Tempo de execução para magic_square : ~w segundos.~n', [Time]),
     Time < 60.

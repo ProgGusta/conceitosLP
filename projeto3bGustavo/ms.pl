@@ -286,13 +286,13 @@ d(16,13).
 d(16,14).
 d(16,15).
 
-test_ms() :-
+test_ms(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P) :-
     get_time(T1),
-    ms( A11,A12,A13,A14,
-        A21,A22,A23,A24,
-        A31,A32,A33,A34,
-        A41,A42,A43,A44),
+    ms( A,B,C,D,
+        E,F,G,H,
+        I,J,K,L,
+        M,N,O,P),
     get_time(T2),
     Time is T2 - T1, 
-    format('Tempo de execução para ~w! : ~w segundos.~n', [N, Time]),
+    format('Tempo de execução para magic_square : ~w segundos.~n', [Time]),
     Time < 60.
