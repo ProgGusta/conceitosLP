@@ -1,4 +1,4 @@
-**expressôes e consultas para G1**
+**expressôes e consultas para G1 e G3**
 
 1- expr([20,/,'(',2,+,3,')',-,4], X).
 2- expr([6,*,3,-,2,+,1], X).
