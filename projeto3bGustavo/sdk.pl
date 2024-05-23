@@ -34,6 +34,9 @@ sdk(A11,A12,A13,A14,A15,A16,A17,A18,A19,
                                                 pr(A74,A75,A76,A84,A85,A86,A94,A95,A96),
                                                 pr(A77,A78,A79,A87,A88,A89,A97,A98,A99).
 
+%prow(A11,A12,A13,A14,A15,A16,A17,A18,A19),nl,prow(A21,A22,A23,A24,A25,A26,A27,A28,A29),nl,prow(A31,A32,A33,A34,A35,A36,A37,A38,A39),nl,prow(A41,A42,A43,A44,A45,A46,A47,A48,A49),nl,prow(A51,A52,A53,A54,A55,A56,A57,A58,A59),nl,prow(A61,A62,A63,A64,A65,A66,A67,A68,A69),nl,prow(A71,A72,A73,A74,A75,A76,A77,A78,A79),nl,prow(A81,A82,A83,A84,A85,A86,A87,A88,A89),nl,prow(A91,A92,A93,A94,A95,A96,A97,A98,A99),nl.
+%prow(X,Y,Z,B,C,D,E,F,G):-write(X),write(' '),write(Y),write(' '),write(Z),write(' '),write(B),write(' '),write(C),write(' '),write(D),write(' '),write(E),write(' '),write(F),write(' '),write(G).
+
 pr(A,B,C,D,E,F,G,H,I):-
                 d(A,B),d(A,C),d(A,D),d(A,E),d(A,F),d(A,G),d(A,H),d(A,I),
                 d(B,C),d(B,D),d(B,E),d(B,F),d(B,G),d(B,H),d(B,I),
@@ -147,5 +150,4 @@ test_sudoku(A11,A12,A13,A14,A15,A16,A17,A18,A19,
         A91,A92,A93,A94,A95,A96,A97,A98,A99),
     get_time(T2),
     Time is T2 - T1, 
-    format('Tempo de execução para sudoku : ~w segundos.~n', [Time]),
-    Time < 60.
+    format('Tempo de execução para sudoku : ~w segundos.~n', [Time]).

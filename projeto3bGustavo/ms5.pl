@@ -672,8 +672,8 @@ test_ms(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y) :-
     get_time(T1),
     ms( A,B,C,D,E,
         F,G,H,I,J,
-        K,L,M,N,O
-        P,Q,R,S,T
+        K,L,M,N,O,
+        P,Q,R,S,T,
         U,V,W,X,Y),
     get_time(T2),
     Time is T2 - T1, 
